@@ -1,0 +1,280 @@
+<!-- Nivell 3 -->
+<!-- Exercici 1 -->
+<!-- Crea una interfície gràfica amb botons que executi cadascun dels 5
+exercicis anteriors. -->
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div class="">
+    <h1>Nivell 1</h1>
+    <h2>Exercici 1</h2>
+    L’exercici consisteix en mostrar per consola quantes vegades apareix cada
+    lletra del teu nom i cognoms amb diferents variants (fases).
+    <ul>
+      <li>
+        Crea un array amb el teu nom on cada posició correspongui a una lletra.
+      </li>
+      <li>Fes un bucle que recorri aquest array i mostri per consola cadascuna
+        de les lletres.
+      </li>
+    </ul>
+    <details>
+      <summary>Exercici 1 Solution</summary>
+      <pre class="line-numbers">
+          <code class="language-javascript">
+            let name = ["D", "A", "N", "I", "E", "L"];
+
+            for (let i = 0; i < name.length; i++) {
+              document.write(name[i]);
+            }
+          </code>
+        </pre>
+    </details>
+
+    <details>
+      <summary>Output</summary>
+      <script>
+        let name = ["D", "A", "N", "I", "E", "L"];
+
+        for (let i = 0; i < name.length; i++) {
+          document.write(name[i] + "<br>");
+        }
+      </script>
+    </details>
+    <hr />
+    <h2>Exercici 2</h2>
+    <ul>
+      <li>Al bucle, si la lletra és una vocal imprimeix a la consola:
+        ‘He trobat la VOCAL: __’. Sinó, imprimeix: ‘He trobat la
+        CONSONTANT: __’.
+      </li>
+      <li>
+        Si trobes un número, mostra per pantalla: ‘Els noms de persones
+        no contenen el número: __’
+      </li>
+    </ul>
+    <details>
+      <summary>Exercici 2 Solution</summary>
+      <pre class="line-numbers">
+        <code class="language-javascript">
+          function isVowel(letter) {
+            return "aeiouAEIOU".indexOf(letter) != -1;
+          }
+
+          function isConsonant(letter) {
+            return "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".indexOf(letter) != -1;
+          }
+
+          function isNumber(numb) {
+            return "0123456789".indexOf(numb) != -1;
+          }
+
+          let nom = ["d", "4", "N", "I", "E", "L", "-"];
+
+          for (let i = 0; i < nom.length; i++) {
+            if (isVowel(nom[i])) {
+              document.write("Vowel: " + nom[i] + " found");
+            } else if (isConsonant(nom[i])) {
+              document.write("Consonant: " + nom[i] + " found");
+            } else if (isNumber(nom[i])) {
+              document.write("Number: " + nom[i] + " cannot be part of a name");
+            } else {
+              document.write("Character: " + nom[i] + " cannot be part of a name");
+            }
+          }
+        </code>
+      </pre>
+    </details>
+
+    <details>
+      <summary>Output</summary>
+      <script type="text/javascript">
+          function isVowel(letter) {
+            return "aeiouAEIOU".indexOf(letter) != -1;
+          }
+
+          function isConsonant(letter) {
+            return "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".indexOf(letter) != -1;
+          }
+
+          function isNumber(numb) {
+            return "0123456789".indexOf(numb) != -1;
+          }
+
+          let nom = ["d", "4", "N", "I", "E", "L", "-"];
+
+          for (let i = 0; i < nom.length; i++) {
+            if (isVowel(nom[i])) {
+              document.write("Vowel: " + nom[i] + " found<br>");
+            } else if (isConsonant(nom[i])) {
+              document.write("Consonant: " + nom[i] + " found<br>");
+            } else if (isNumber(nom[i])) {
+              document.write("Number: " + nom[i] + " cannot be part of a name<br>");
+            } else {
+              document.write("Character: " + nom[i] + " cannot be part of a name<br>");
+            }
+          }
+      </script>
+    </details>
+    <hr>
+    <h2>Exercici 3</h2>
+    Emmagatzemar en un Map les lletres de l'array y el nombre de vegades que
+    apareixen.
+    <details>
+      <summary>Exercici 3 Solution</summary>
+      <pre class="line-numbers">
+        <code class="language-javascript">
+          const name1 = "DANIELITONCIO";
+
+        	let name_map = new Map();
+
+        	for (let c of name1) {
+        		if (!name_map.has(c)) {
+        			name_map.set(c, 1);
+        		} else {
+        			name_map.set(c, name_map.get(c) + 1);
+        		}
+        	}
+        	document.write("Name: ", name1);
+        </code>
+      </pre>
+    </details>
+    <details>
+      <summary>Output</summary>
+      <script type="text/javascript">
+        const name1 = "DANIELITONCIO";
+
+        let name_map = new Map();
+
+        for (let c of name1) {
+          if (!name_map.has(c)) {
+            name_map.set(c, 1);
+          } else {
+            name_map.set(c, name_map.get(c) + 1);
+          }
+        }
+
+        document.write("Name: ", name1 + "<br>");
+        name_map.forEach((value, key) => document.write(`${value}: ${key}<br>`))
+      </script>
+    </details>
+    <hr>
+    <h2>Exercici 4</h2>
+    <ul>
+      <li>
+        Crea una altra array amb el teu cognom on cada posició correspongui
+        a una lletra.
+      </li>
+      <li>
+        Fusiona els dos arrays en un. A més, afegeix una posició amb un espai
+        buit entre la primera i la segona. És a dir, partim de 'array name i
+        surname i al acabar l’execució només tindrem una que es dirà fullName.
+      </li>
+    </ul>
+    <details>
+      <summary>Exercici 4 Solution</summary>
+      <pre class="line-numbers">
+        <code class="language-javascript">
+          const name = ["D", "A", "N", "I", "E", "L"];
+        	const surname = ["M", "A", "C", "I", "A", "S"];
+        	const surname2 = ["G", "O", "M", "E", "Z"];
+
+        	const full_name = [...name, " ", ...surname, " ", ...surname2]
+
+          for (let i = 0; i < full_name.length; i++) {
+            document.write(full_name[i])
+          }
+        </code>
+      </pre>
+    </details>
+    <details>
+      <summary>Output</summary>
+      <script type="text/javascript">
+        const name2 = ["D", "A", "N", "I", "E", "L"];
+        const surname = ["M", "A", "C", "I", "A", "S"];
+        const surname2 = ["G", "O", "M", "E", "Z"];
+
+        const full_name = [...name2, " ", ...surname, " ", ...surname2]
+
+        for (let i = 0; i < full_name.length; i++) {
+          document.write(full_name[i] + "<br>")
+        }
+      </script>
+    </details>
+    <hr style="height:1px; border:none; color:#000; background-color:#000;">    <h1>Nivell 2</h1>
+    <h2>Exercici 1</h2>
+    Crea una funció que retorni un array amb tots els email (sense repetir)
+    del següent text:
+    <pre>
+        var str = 'Una dirección de correo electrónico es la dirección que
+        utiliza para recibir y enviar correos electrónicos. Se muestra a los
+        destinatarios de sus correos electrónicos para que sepan quién le
+        envió un correo electrónico. Cada dirección de correo electrónico sólo
+        se puede asignar una vez en todo el mundo y, por lo tanto, está
+        disponible exclusivamente para usted. No puede cambiar las direcciones
+        de correo electrónico, pero puede eliminarlas en cualquier momento.
+        Una dirección de correo electrónico consiste en el signo @ (arroba), el
+        nombre de usuario delante y el dominio detrás, por ejemplo,
+        nombre-de-usuario@ionos.es: La parte del dominio depende del dominio
+        bajo el cual se crea la dirección de correo electrónico: en nuestro
+        ejemplo es ionos.es. Esta información varía de proveedor a proveedor,
+        por lo que una parte del dominio también puede ser gmail.com o gmx.es
+        si utiliza una dirección de correo electrónico de estos proveedores. Si
+        ha registrado su propio dominio, por ejemplo, www.el-nombre-de-sus-sueños.es,
+        las direcciones de correo electrónico que configura para el dominio lo
+        tienen como parte del dominio (nombre-de-usuario@el-nombre-de-sus-sueños.es
+        o nombre-de-usuario@el-nombre-de-sus-sueños.ES). El nombre de usuario es la
+        parte de una dirección de correo electrónico que puede seleccionar libremente
+        en la medida de lo posible. Puede, por ejemplo, utilizar su propio nombre
+        o el nombre o departamento de una empresa. Si utiliza una dirección de correo
+        electrónico con un proveedor de correo como gmail.com o gmx.es, es posible
+        que la combinación con la parte del dominio deseada ya esté registrada.
+        En este caso, deberá considerar alternativas para el nombre de usuario
+        de su dirección de correo electrónico. Si utiliza su propio dominio,
+        estas restricciones no se aplican porque sólo usted puede crear direcciones
+        de correo electrónico que coincidan con su propio dominio. En resumen,
+        nombre-de-usuario@ionos.es es un email';
+      </pre>
+      <details>
+        <summary>Exercici 1 Solution</summary>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+              let emails = [];
+
+            	function extract_email(text) {
+
+            		return [...new Set(text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi))]
+            	}
+
+            	emails = extract_email(str);
+            	console.log(emails);
+            </code>
+        </pre>
+      </details>
+    <details>
+      <summary>Output</summary>
+      <script type="text/javascript">
+        var str = 'Una dirección de correo electrónico es la dirección que utiliza para recibir y enviar correos electrónicos. Se muestra a los destinatarios de sus correos electrónicos para que sepan quién le envió un correo electrónico. Cada dirección de correo electrónico sólo se puede asignar una vez en todo el mundo y, por lo tanto, está disponible exclusivamente para usted. No puede cambiar las direcciones de correo electrónico, pero puede eliminarlas en cualquier momento. Una dirección de correo electrónico consiste en el signo @ (arroba), el nombre de usuario delante y el dominio detrás, por ejemplo, nombre-de-usuario@ionos.es: La parte del dominio depende del dominio bajo el cual se crea la dirección de correo electrónico: en nuestro ejemplo es ionos.es. Esta información varía de proveedor a proveedor, por lo que una parte del dominio también puede ser gmail.com o gmx.es si utiliza una dirección de correo electrónico de estos proveedores. Si ha registrado su propio dominio, por ejemplo, www.el-nombre-de-sus-sueños.es, las direcciones de correo electrónico que configura para el dominio lo tienen como parte del dominio (nombre-de-usuario@el-nombre-de-sus-sueños.es o nombre-de-usuario@el-nombre-de-sus-sueños.ES). El nombre de usuario es la parte de una dirección de correo electrónico que puede seleccionar libremente en la medida de lo posible. Puede, por ejemplo, utilizar su propio nombre o el nombre o departamento de una empresa. Si utiliza una dirección de correo electrónico con un proveedor de correo como gmail.com o gmx.es, es posible que la combinación con la parte del dominio deseada ya esté registrada. En este caso, deberá considerar alternativas para el nombre de usuario de su dirección de correo electrónico. Si utiliza su propio dominio, estas restricciones no se aplican porque sólo usted puede crear direcciones de correo electrónico que coincidan con su propio dominio. En resumen, nombre-de-usuario@ionos.es es un email';
+
+        let emails = [];
+
+        function extract_email(text) {
+
+          return [...new Set(text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi))]
+        }
+
+        emails = extract_email(str);
+        document.write(emails);
+      </script>
+    </details>
+  </div>
+</body>
+<script type="text/javascript">
+
+</script>
+
+</html>

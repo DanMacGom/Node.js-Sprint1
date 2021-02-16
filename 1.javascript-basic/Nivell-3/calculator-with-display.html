@@ -1,0 +1,100 @@
+<!-- Nivell 3 -->
+<!-- Exercici 1 -->
+<!-- Ara evolucionarem el nivell 2: Crearem una interfície gràfica per tal de
+fer la calculadora més usable. El disseny és totalment lliure, intenta sorprendre
+al teu mentor. -->
+<body>
+	<table border="1">
+		<tr>
+			<!-- clear() function deletes current display -->
+			<td><input type="button" value="C" onclick="clear_display()" /> </td>
+
+			<!-- Cool regex to disallow typing letters in the display -->
+			<!-- TODO: User can still input more than one operator by typing in keyboard inside panel -->
+			<td colspan="3"><input type="text" id="panel" oninput="this.value = this.value.replace(/[^0-9+-\/\*.]/g, '').replace(/(\..*?)\..*/g, '$1');" /></td>
+		</tr>
+		<tr>
+			<!-- display() shows current button pressed on the screen -->
+			<td><input type="button" value="+" onclick="display('+')" /> </td>
+			<td><input type="button" value="1" onclick="display('1')" /> </td>
+			<td><input type="button" value="2" onclick="display('2')" /> </td>
+			<td><input type="button" value="3" onclick="display('3')" /> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="-" onclick="display('-')" /> </td>
+			<td><input type="button" value="4" onclick="display('4')" /> </td>
+			<td><input type="button" value="5" onclick="display('5')" /> </td>
+			<td><input type="button" value="6" onclick="display('6')" /> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="*" onclick="display('*')" /> </td>
+			<td><input type="button" value="7" onclick="display('7')" /> </td>
+			<td><input type="button" value="8" onclick="display('8')" /> </td>
+			<td><input type="button" value="9" onclick="display('9')" /> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="/" onclick="display('/')" /> </td>
+			<td><input type="button" value="." onclick="display('.')" /> </td>
+			<td><input type="button" value="0" onclick="display('0')" /> </td>
+
+			<!-- solve() computes operation -->
+			<td><input type="button" value="=" onclick="solve()" /> </td>
+		</tr>
+	</table>
+
+	<script>
+		function isOperator(val) {
+			const operators_dot = "/*+-().";
+
+			for (let c of operators_dot) {
+				if (val == c) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		// Display buttons pressed.
+		function display(val) {
+			const disp = document.getElementById("panel").value;
+			const last_char = disp.charAt(disp.length - 1);
+
+			// Handle two contiguous operators.
+			if (isOperator(last_char) && isOperator(val)) {
+				val = "";
+			}
+
+			document.getElementById("panel").value += val;
+		}
+
+		// Solve operation.
+		// TODO: Current implementation doesn't allow for an operator after dot.
+		function solve() {
+			const operators = "+-*/";
+			const disp = document.getElementById("panel").value;
+
+			// TODO: Handle IP-like input.
+			// var numbers = "";
+			//
+			// numbers = disp.split(/\+|\-|\*|\//);
+			//
+			// var t = 0;
+			// numbers = numbers.replace(/./g, function(match) {
+			// 	t++;
+			// 	return (t === 2) ? "" : match;
+			// })
+
+			// Handle leaving an operator hanging in last place.
+			if (!isOperator(disp.charAt(disp.length - 1)) && disp != "") {
+				// Eval function takes a string and computes the operations in it (dangerous to use).
+				document.getElementById("panel").value = eval(disp);
+			}
+		}
+
+		// Resets the display.
+		function clear_display() {
+			document.getElementById("panel").value = "";
+		}
+	</script>
+</body>

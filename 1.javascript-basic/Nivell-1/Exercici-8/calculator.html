@@ -1,0 +1,22 @@
+<!-- Nivell 1 -->
+<!-- Exercici 8 -->
+<!-- Crea una funció anomenada calculadora que tingui com a entrada els següents
+paràmetres: operador, valor1 i valor2.
+Estructura de la funció que faci sumes, restes i multiplicacions. El resultat
+haurà de ser mostrar per pantalla. -->
+<script>
+	function calculadora(operador, valor1, valor2) {
+		if (operador === '*') {
+			return valor1 * valor2;
+		} else if (operador === '+') {
+			return valor1 + valor2;
+		} else if (operador === '-') {
+			return valor1 - valor2;
+		} else {
+			console.log("Unknown " + "'" + operador + "' " + "operator");
+		}
+	}
+
+	let result = calculadora('*', 10, 20);
+	console.log(result);
+</script>

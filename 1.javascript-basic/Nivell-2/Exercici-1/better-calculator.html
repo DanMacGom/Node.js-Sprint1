@@ -1,0 +1,25 @@
+<!-- Nivell 2 -->
+<!-- Exercici 1 -->
+Aprofita la funció "calculadora" de l'exercici anterior per crear una
+calculadora completa amb opcions per sumar, restar, multiplicar i dividir.
+Hauràs de controlar el Zero com a denominador d'una divisió.
+<script>
+	function calculadora(operador, valor1, valor2) {
+		if (operador === '*') {
+			return valor1 * valor2;
+		} else if (operador === '+') {
+			return valor1 + valor2;
+		} else if (operador === '-') {
+			return valor1 - valor2;
+		} else if (operador === '/' && valor2 != 0) {
+			return valor1 / valor2;
+		} else if (operador === '/' && valor2 === 0) {
+			console.log("Division by zero cannot be computed. It is undefined.");
+		} else {
+			console.log("Unknown " + "'" + operador + "' " + "operator");
+		}
+	}
+
+	let result = calculadora('*', 10, 20);
+	console.log(result);
+</script>

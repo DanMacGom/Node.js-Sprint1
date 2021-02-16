@@ -1,0 +1,35 @@
+<!-- Nivell 1 -->
+<!-- Exercici 1 -->
+<!--
+	- Al bucle, si la lletra és una vocal imprimeix a la consola: ‘He trobat la
+		VOCAL: __’. Sinó, imprimeix: ‘He trobat la CONSONTANT: __’.
+	- Si trobes un número, mostra per pantalla: ‘Els noms de persones no contenen
+		el número: __’
+-->
+<script>
+	function isVowel(letter) {
+		return "aeiouAEIOU".indexOf(letter) != -1;
+	}
+
+	function isConsonant(letter) {
+		return "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".indexOf(letter) != -1;
+	}
+
+	function isNumber(numb) {
+		return "0123456789".indexOf(numb) != -1;
+	}
+
+	let nom = ["d", "4", "N", "I", "E", "L", "-"];
+
+	for (let i = 0; i < nom.length; i++) {
+		if (isVowel(nom[i])) {
+			console.log("Vowel: " + nom[i] + " found");
+		} else if (isConsonant(nom[i])) {
+			console.log("Consonant: " + nom[i] + " found");
+		} else if (isNumber(nom[i])) {
+			console.log("Number: " + nom[i] + " cannot be part of a nom");
+		} else {
+			console.log("Character: " + nom[i] + " cannot be part of a nom");
+		}
+	}
+</script>

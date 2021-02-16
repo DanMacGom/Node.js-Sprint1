@@ -1,0 +1,31 @@
+<!-- Nivell 1 -->
+<!-- Exercici 3 -->
+<!-- Emmagatzemar en un Map les lletres de l'array y el nombre de vegades que
+apareixen. -->
+<script>
+	const name1 = "DANIELITONCIO";
+
+	let name_map = new Map();
+
+	for (let c of name1) {
+		if (!name_map.has(c)) {
+			name_map.set(c, 1);
+		} else {
+			name_map.set(c, name_map.get(c) + 1);
+		}
+	}
+
+	/* Using an object! Seems easier */
+	// let name_map = {}
+	//
+	// for (let i = 0; i < name1.length; i++) {
+	// 	if (name1[i] in name_map) {
+	// 		name_map[name1[i]] += 1;
+	// 	} else {
+	// 		name_map[name1[i]] = 1;
+	// 	}
+	// }
+
+	console.log("name1: ", name1);
+	console.log(name_map);
+</script>

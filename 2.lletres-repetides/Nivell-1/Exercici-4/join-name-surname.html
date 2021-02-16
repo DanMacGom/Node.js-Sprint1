@@ -1,0 +1,18 @@
+<!-- Nivell 1 -->
+<!-- Exercici 4 -->
+<!--
+	- Crea una altra array amb el teu cognom on cada posició correspongui a
+		una lletra.
+	- Fusiona els dos arrays en un. A més, afegeix una posició amb un espai buit
+		entre la primera i la segona. És a dir, partim de 'array name i surname i al
+		acabar l’execució només tindrem una que es dirà fullName.
+-->
+<script>
+	const name = ["D", "A", "N", "I", "E", "L"];
+	const surname = ["M", "A", "C", "I", "A", "S"];
+	const surname2 = ["G", "O", "M", "E", "Z"];
+
+	const full_name = [...name, " ", ...surname, " ", ...surname2]
+
+	console.log(full_name);
+</script>
